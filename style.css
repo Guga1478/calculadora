@@ -4,9 +4,9 @@ body{
 .calculadora{
     display:block;
     margin: 0 auto;
-    padding: 13px;
+    padding: 15px;
     background-color: steelblue;
-    width: 450px;
+    width: 445px;
     height: 540px;
     border-radius: 25px;
 }
