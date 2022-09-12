@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 body{
     margin-top: 25px;
 }
@@ -5,9 +6,9 @@ body{
     display:block;
     margin: 0 auto;
     padding: 15px;
-    background-color: steelblue;
+    background-color: rgb(10, 145, 10);
     width: 420px;
-    height: 480px;
+    height: 490px;
     border-radius: 25px;
 }
 
@@ -38,4 +39,15 @@ body{
     background-color: #fff;
     border-radius: 25px;
     overflow-y:hidden; 
+}
+.brand{
+    margin-top: 1px;
+    text-align: center;
+    margin-left: 10px;
+    font-family: poppins;
+    width: 100px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: slategrey;
+    border-radius: 25px;
 }
