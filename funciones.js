@@ -1,26 +1,31 @@
-var operandoa;
-var operandob;
-var operacion;
+let operandoa;
+let operandob;
+let operacion;
 
 function init(){
-    //variables
-    var igual = document.getElementById('igual');
-    var reset = document.getElementById('reset');
-    var suma = document.getElementById('suma');
-    var resta = document.getElementById('resta');
-    var multiplicacion = document.getElementById('multiplicacion');
-    var division = document.getElementById('division');
-    var igual = document.getElementById('igual');
-    var uno = document.getElementById('uno');
-    var dos = document.getElementById('dos');
-    var tres = document.getElementById('tres');
-    var cuatro = document.getElementById('cuatro');
-    var cinco = document.getElementById('cinco');
-    var seis = document.getElementById('seis');
-    var siete = document.getElementById('siete');
-    var ocho = document.getElementById('ocho');
-    var nueve = document.getElementById('nueve');
-    var cero = document.getElementById('cero');
+    //letiables
+    let igual = document.getElementById('igual');
+    let reset = document.getElementById('reset');
+    let suma = document.getElementById('suma');
+    let resta = document.getElementById('resta');
+    let multiplicacion = document.getElementById('multiplicacion');
+    let division = document.getElementById('division');    
+    let uoperandoa = document.getElementById('uoperandoa');
+    let dos = document.getElementById('dos');
+    let tres = document.getElementById('tres');
+    let cuatro = document.getElementById('cuatro');
+    let cinco = document.getElementById('cinco');
+    let seis = document.getElementById('seis');
+    let siete = document.getElementById('siete');
+    let ocho = document.getElementById('ocho');
+    let nueve = document.getElementById('nueve');
+    let cero = document.getElementById('cero');
+    let raizCuad = document.getElementById('raizCuad');
+    let porcentaje = document.getElementById('porcentaje');
+    let sin = document.getElementById('sin');
+    let cos = document.getElementById('cos');
+    let tg = document.getElementById('tg');
+    
 
     //Eventos
     uno.onclick = function(e){
@@ -76,10 +81,36 @@ function init(){
         operacion = "/";
         limpiar();        
     }
+    porcentaje.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion= "%";
+        limpiar();
+    }
+    sin.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "sin";
+        limpiar();
+    }
+    cos.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "cos";
+        limpiar();
+    }
+    tg.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "tg";
+        limpiar();
+    }
+    raizCuad.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "√";
+        limpiar();
+    }
     igual.onclick = function(e){
         operandob = resultado.textContent;        
         resolver();        
     }
+    
 }
 
 function limpiar(){
@@ -93,8 +124,20 @@ function resetear(){
     operacion = "";
 }
 
+// function porcentaje(operandoa, operandob, operc){
+//     let operandoa = 0;
+//     let operandob = 0;
+//     let operc = 100;
+//     if(resta){
+//         operandoa - (operandob * operandoa / operc)
+//     }else if(suma){
+//         operandoa + (operandob * operandoa / operc)
+//     }
+// }
+
 function resolver(){
-    var res = 0;
+    let res = 0;
+    let operc = 100;
     switch(operacion){
         case "+":
             res = parseFloat(operandoa) + parseFloat (operandob);
@@ -111,6 +154,27 @@ function resolver(){
         case "/":
             res= parseFloat (operandoa) / parseFloat (operandob);
             break;  
+
+        case "%":
+            res= (parseFloat(operandoa) * parseFloat (operandob)) / parseFloat (operc);  
+            break; 
+
+        case "sin":
+            res= Math.sin(parseFloat(operandoa));
+            break;
+
+        case "cos":
+            res= Math.cos(parseFloat(operandoa));
+            break;
+
+        case "tg":
+            res = Math.tan(parseFloat(operandoa));
+            break;
+
+        case "√":
+            res = Math.sqrt(parseFloat(operandoa));
+            break;
+            
     }
     resetear();
     resultado.textContent = res;
